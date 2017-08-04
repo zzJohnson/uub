@@ -1,5 +1,6 @@
 ;(function(){
 	var directives = angular.module('directives',[]);
+<<<<<<< HEAD
 	directives.directive('c-product-header',function(){
 		return {
 			templateUrl:"chtml/c-product-header.html",
@@ -16,4 +17,10 @@
 			}
 		}
 	})
+	directives.directive('xarticle',[function(){
+		return {
+			templateUrl:"../app/html/wuqian/directive/xarticle.html",
+		}
+	}]);
 })();
+
