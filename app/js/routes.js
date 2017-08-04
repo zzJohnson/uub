@@ -6,11 +6,9 @@
 		
 		 $stateProvider.state('index',{
 		 	url:'/index',
-		 	// templateUrl:''
-		 	template:`
-		 		<div>123</div>
-		 	`
+		 	templateUrl:'../app/html/heziyang/test.html'
 		 })
+		 console.log(333)
 
 //----------------
 		
