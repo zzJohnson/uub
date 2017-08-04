@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" id="vp" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript">
+		var wd = document.documentElement.clientWidth * window.devicePixelRatio / 10;
+		document.getElementsByTagName("html")[0].style.fontSize = wd + "px";
+		var scale = 1 / window.devicePixelRatio;
+		var mstr = 'initial-scale=' + scale * 2 + ', maximum-scale=' + scale * 2 + ', minimum-scale=' + scale * 2 + ', user-scalable=no';
+		document.getElementById("vp").content = mstr;
+	</script>
+	<title>Uubook</title>
+</head>
+<body ng-controller="dataCtrl">
+	<ui-view></ui-view>
+</body>
+<script src="../app/js/angular.js"></script>
+<script src="../app/js/angular-ui-router.js"></script>
+<script src="../app/js/base.js"></script>
+<script src="../app/js/controllers.js"></script>
+<script src="../app/js/services.js"></script>
+<script src="../app/js/routes.js"></script>
+<script src="../app/js/filters.js"></script>
+<script src="../app/js/directives.js"></script>
+<script src="../app/js/bootstraps.js"></script>
+</html>

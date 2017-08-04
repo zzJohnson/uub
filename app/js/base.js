@@ -1,0 +1,1 @@
+var app = angular.module('Uubook',['ui.router','routes','directives','services','filters','controllers']);
