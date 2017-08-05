@@ -31,8 +31,12 @@
 		$stateProvider.state('index',{
 			url:'/detail',
 			templateUrl: '../app/html/wuqian/detail.html'
+		})
+		.state('clist',{
+			url:'/clist',
+		 	templateUrl:'../app/html/cxg/product/clist.html'
 		});
-
+		
 		$urlRouterProvider.when("","/index");
 	}]);
 })();
