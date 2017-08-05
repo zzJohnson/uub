@@ -4,14 +4,18 @@
 
 //-------------模板
 		
-		// $stateProvider.state('index',{
-		// 	url:'/index',
-		// 	// templateUrl:''
-		// 	template:`
-		// 		<div>123</div>
-		// 	`
-		// })
-
+		$stateProvider.state('logreg',{
+			url:'/logreg',
+			templateUrl:'../app/html/John/template/logreg.html'
+		})
+		.state('logreg.login',{
+			url:'/login',
+			templateUrl:'../app/html/John/template/login.html'
+		})
+		.state('logreg.reg',{
+			url:'/reg',
+			templateUrl:'../app/html/John/template/reg.html'
+		})
 //----------------
 		
 		$urlRouterProvider.when("","/index");
