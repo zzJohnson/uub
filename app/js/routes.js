@@ -22,16 +22,18 @@
 		 $stateProvider.state('nav',{
 		 	url:'/nav',
 		 	templateUrl:'../app/html/heziyang/test.html'
+		 }).state('search',{
+		 	url:'/search',
+		 	templateUrl:'../app/html/heziyang/search.html'
 		 })
-		 // console.log(333)
 
 // ----------------
 		
 
-		$stateProvider.state('index',{
-			url:'/detail',
-			templateUrl: '../app/html/wuqian/detail.html'
-		});
+//		$stateProvider.state('index',{
+//			url:'/detail',
+//			templateUrl: '../app/html/wuqian/detail.html'
+//		});
 
 		$urlRouterProvider.when("","/index");
 	}]);
