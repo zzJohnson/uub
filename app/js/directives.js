@@ -1,17 +1,38 @@
 ;(function(){
 	var directives = angular.module('directives',[]);
-
+	/**********************头部导航栏start*******************************/
 	directives.directive('topnav',function(){console.log(222)
 		return {
 			templateUrl:'../app/html/heziyang/topNav.html',
 			link:function(scope,ele,attr){
-				
+				scope.bool = false;
 				scope.show = function(){
-					console.log(111)
+					scope.bool = true;
 				}
+				scope.hide = function(){
+					scope.bool = false;
+				}
+				scope.nav_content = [
+					{id:1,title:'Html/Css'},
+					{id:2,title:'JavaScript'},
+					{id:3,title:'c#'},
+					{id:4,title:'swift'},
+					{id:5,title:'c++'},
+					{id:6,title:'Java'},
+					{id:7,title:'IOS'},
+					{id:8,title:'Cordova'},
+					{id:9,title:'nodejs'},
+					{id:10,title:'PHP'},
+					{id:11,title:'JavaEE'},
+					{id:12,title:'Objective-C'},
+					{id:13,title:'C语言'},
+					{id:14,title:'python'}
+				]
+				
 			}
 		}
 	})
+	/**********************头部导航栏end*******************************/
 
 	directives.directive('c-product-header',function(){
 		return {
