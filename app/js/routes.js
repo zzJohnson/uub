@@ -2,7 +2,8 @@
 	var routes = angular.module('routes',[]);
 	routes.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
 
-//-------------模板
+
+//-------------登陆注册的路由
 		
 		$stateProvider.state('logreg',{
 			url:'/logreg',
@@ -16,8 +17,22 @@
 			url:'/reg',
 			templateUrl:'../app/html/John/template/reg.html'
 		})
-//----------------
 		
+//----------------
+		 $stateProvider.state('nav',{
+		 	url:'/nav',
+		 	templateUrl:'../app/html/heziyang/test.html'
+		 })
+		 console.log(333)
+
+// ----------------
+		
+
+		$stateProvider.state('index',{
+			url:'/detail',
+			templateUrl: '../app/html/wuqian/detail.html'
+		});
+
 		$urlRouterProvider.when("","/index");
-	}])
+	}]);
 })();
