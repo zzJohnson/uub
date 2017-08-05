@@ -23,7 +23,7 @@
 		 	url:'/nav',
 		 	templateUrl:'../app/html/heziyang/test.html'
 		 })
-		 console.log(333)
+		 // console.log(333)
 
 // ----------------
 		

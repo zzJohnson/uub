@@ -1,10 +1,33 @@
-<div>
-	<ul>
-		<li>登陆</li>
-		<li>注册</li>
-	</ul>
-</div>
+<ul class="lgh_tabs">
+	<li ng-class="{'lgh_selected':isSelected}" ng-click="changeSelected('login')">
+		<a href="#!/logreg/login">登陆</a>
+	</li>
+	<li ng-class="{'lgh_selected':!isSelected}" ng-click="changeSelected('reg')">
+		<a href="#!/logreg/reg">注册</a>
+	</li>
+</ul>
 
 <style>
-	
+	.lgh_tabs{
+		width: 100%;
+	    height: 0.55rem;
+	    margin-bottom: 0.4rem;
+	    padding-top: 1.7rem;
+	    border-bottom: none;
+	    background: url(../app/images/timg.jpg) no-repeat;
+	    background-size: cover;
+	}
+	.lgh_tabs li{
+		float: left;
+		display:block;
+		color:#FFF;
+		margin-left:1.3rem;
+	}
+	.lgh_selected{
+		border-bottom:2px solid #FFF;
+	}
+	.lgh_tabs li a{
+		font-size:0.25rem;
+		color:#FFF;
+	}
 </style>

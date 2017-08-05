@@ -1,1 +1,50 @@
-<div>这里是登陆</div>
+<form class="login_con">
+	<input type="text" placeholder="用户名" ng-focus="isfocus(1)" ng-blur="isfocus(1)" ng-class="{'login_focus':showuser}" ng-model="username">
+	<input type="text" placeholder="密码" ng-focus="isfocus(2)" ng-blur="isfocus(2)" ng-class="{'login_focus':showpsw}" ng-model="password">
+	
+
+	<button ng-click="login()" ng-class="{'sel':canreg}">登陆</button>
+
+	<p class="warn" ng-show="isShowWarn">{{warn}}</p>
+</form>
+
+<style>
+	.login_con{
+		padding:0 0.4rem;
+	}
+
+	.login_con input{
+		margin: 0;
+		padding: 0.20rem 0;
+		width: 100%;
+		height: auto;
+		font-size: 0.26rem;
+		line-height: 1;
+		color: rgba(34,39,52,0.5);
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid #e6e6e6;
+		background: #fff;
+	}
+	.login_con .login_focus{
+		border-bottom: 1px solid #000;
+	}
+	.login_con button{
+		margin: 30px 0 40px;
+	    width: 100%;
+	    font-size: 0.26rem;
+	    line-height: 45px;
+	    color: #fff;
+	    background: #ccc;
+	    border-style: none;
+	    border-radius: 0;
+	}
+	.login_con .sel{
+		background-color: #e12f11;
+	}
+	.warn{
+		color:#e12f11;
+		font-size:0.20rem;
+		text-align:center;
+	}
+</style>
