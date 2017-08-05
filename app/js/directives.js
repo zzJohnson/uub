@@ -1,6 +1,38 @@
 ;(function(){
 	var directives = angular.module('directives',[]);
+
 	/**********************头部导航栏start*******************************/
+
+//----------登录注册的组件
+	
+	directives.directive('logheader',[function(){
+		return {
+			templateUrl:'../app/html/John/directive/logheader.html',
+			link:function(scope,ele,attr){
+				scope.abc = '123'
+			}
+		}
+	}]);
+
+	directives.directive('xlogin',[function(){
+		return {
+			templateUrl:'../app/html/John/directive/xlogin.html',
+			link:function(scope,ele,attr){
+
+			}
+		}
+	}]);
+
+	directives.directive('xreg',[function(){
+		return {
+			templateUrl:'../app/html/John/directive/xreg.html',
+			link:function(scope,ele,attr){
+				
+			}
+		}
+	}]);
+//------------------
+
 	directives.directive('topnav',function(){console.log(222)
 		return {
 			templateUrl:'../app/html/heziyang/topNav.html',
