@@ -216,11 +216,23 @@
 			templateUrl:'../app/html/heziyang/topNav.html',
 			link:function(scope,ele,attr){
 				scope.bool = false;
+				scope.searchBool = false;
+				scope.isShow = false;
+				scope.isHide = true;
 				scope.show = function(){
 					scope.bool = true;
+					scope.isShow = true;
 				}
 				scope.hide = function(){
 					scope.bool = false;
+				}
+				scope.switchSearchBar = function(){
+					scope.searchBool = true;
+					scope.bool = false;
+					scope.isHide = false;
+				}
+				scope.search_quit = function(){
+					scope.searchBool = false;
 				}
 				scope.nav_content = [
 					{id:1,title:'Html/Css'},
@@ -238,7 +250,7 @@
 					{id:13,title:'C语言'},
 					{id:14,title:'python'}
 				]
-				
+
 			}
 		}
 	})
