@@ -1,6 +1,6 @@
-<div style="width: 100%;height: 100%;">
+<div>
 	<div id="topnav">
-		<button class="iconfont icon-cebianlan" id="btn_topbar" ng-click="show()"></button>
+		<button class="iconfont icon-cebianlan" id="btn_topbar" ng-click="show()"></button>		
 		<div ng-class="{navcontent_show:bool==true,navcontent_hide:bool==false}" ng-if="isShow">
 			<div class="nav_title">
 				<div style="border-bottom: 0.013333rem solid #999999;width: 100%;height: 100%;">
@@ -42,10 +42,6 @@
 </div>
 
 <style>
-	#topnav {
-		height: 100%;
-	}
-	
 	#topnav .nav_title {
 		width: 100%;
 		height: 0.933333rem;
@@ -83,13 +79,19 @@
 	
 	#topnav #btn_topbar {
 		display: block;
-		background: none;
+		background: rgba(233,233,233,0.5);
 		border: 0;
 		font-size: 0.4rem;
 		position: fixed;
 		top: 0.4rem;
 		left: 0.4rem;
 		outline: 0;
+		z-index: 100;
+		width: 0.8rem;
+		height: 0.8rem;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 0.4rem;
 	}
 	
 	#topnav .navcontent_show {
