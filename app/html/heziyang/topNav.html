@@ -33,7 +33,10 @@
 	</div>
 	<div id="search_bar" ng-class="{search_bar_show:searchBool==true,search_bar_hide:searchBool==false,search_bar_isHide:isHide==true}" ng-if="isShow">
 		<i class="iconfont icon-web-quit" style="color: red;font-size: 0.213333rem;position: absolute;top: 0.266666rem;right: 0.266666rem;" ng-click="search_quit()"></i>
-		<div class="search_container"><i class="iconfont icon-fangdajing" style="font-size: 0.266666rem;position: absolute;top:0.04rem;left: 0;"></i><input type="text" class="search_input"/></div>
+		<div class="search_container">
+			<i class="iconfont icon-fangdajing" style="font-size: 0.266666rem;position: absolute;top:0.04rem;left: 0;"></i>
+			<input type="text" class="search_input" ng-model="inputContent"/>
+		</div>
 		<div class="searchBtn_container"><button class="search_btn">搜索</button></div>
 	</div>
 </div>
@@ -273,7 +276,7 @@
 			right: -100%;
 		}
 		to{
-			left:0;
+			right:0;
 		}
 	}
 	@keyframes search_bar_hide {

@@ -211,7 +211,7 @@
 	}]);
 //------------------
 
-	directives.directive('topnav',function(){console.log(222)
+	directives.directive('topnav',function(){
 		return {
 			templateUrl:'../app/html/heziyang/topNav.html',
 			link:function(scope,ele,attr){
@@ -219,6 +219,10 @@
 				scope.searchBool = false;
 				scope.isShow = false;
 				scope.isHide = true;
+				scope.inputContent = '';
+				scope.change = function(){
+					console.log(scope.inputContent)
+				}
 				scope.show = function(){
 					scope.bool = true;
 					scope.isShow = true;
@@ -230,8 +234,10 @@
 					scope.searchBool = true;
 					scope.bool = false;
 					scope.isHide = false;
+//					scope.inputContent = '';
 				}
-				scope.search_quit = function(){
+				scope.search_quit = function(inputContent){
+					scope.inputContent = '';
 					scope.searchBool = false;
 				}
 				scope.nav_content = [
