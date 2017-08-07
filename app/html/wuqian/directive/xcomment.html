@@ -1,0 +1,43 @@
+<div id="xcomment-footer" ng-repeat="i in data">
+	<div class="xcomment-zan xcomment">
+		<span>{{i.zan}} 赞</span>
+	</div>
+	<div class="xcomment-pinl xcomment">
+		<span>{{i.pinlun}} 条评论</span>
+	</div>
+	<!-- <div class="xcomment-cany">
+		<span>参与评论</span>
+		<div class="xcomment-methods">
+			<p>- 你可以通过以下方式登录 -</p>
+			<span>邮箱</span>
+			<span>微博</span>
+		</div>
+	</div> -->
+</div>
+<style>
+	#xcomment-footer{
+		width: 100%;
+		background: #F7F7F7;
+		margin-bottom: 0.666667rem;
+	}
+	#xcomment-footer .xcomment{
+		font-size: 0.213333rem;
+		padding:0 0.266667rem;
+		height:0.8rem;
+		line-height: 0.8rem;
+		color: #b2b2b2;
+	    font-weight: bold;
+	}
+	#xcomment-footer .xcomment-zan{
+		border-bottom:2px dashed #c2d2d2;
+	}
+	#xcomment-footer .xcomment-pinl{
+		border-bottom:1px solid #c2d2d2;
+	}
+	#xcomment-footer .xcomment-cany{
+		font-size:0.213333rem;
+		padding:0 0.266667rem;
+		margin:0.133333rem 0;
+		line-height: 0.8rem;
+	}
+</style>

@@ -28,7 +28,7 @@
 // ----------------
 		
 
-		$stateProvider.state('index',{
+		$stateProvider.state('detail',{
 			url:'/detail',
 			templateUrl: '../app/html/wuqian/detail.html'
 		});

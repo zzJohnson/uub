@@ -1,0 +1,24 @@
+<div id="xfooter-xfooter" ng-repeat="i in data">
+	<div class="xfooter-aut"><span>点赞</span><span>{{i.zan}}</span></div>
+	<div class="xfooter-aut"><span>评论</span><span>{{i.pinlun}}</span></div>
+	<div class="xfooter-aut"><span>转发</span><span>{{i.zhuanf}}</span></div>
+</div>
+<style>
+	#xfooter-xfooter{
+		width:100%;
+		font-size: 0.186667rem;
+		position: fixed;
+		bottom: 0;
+		background-color: #fff;
+		display: flex;
+	}
+	#xfooter-xfooter .xfooter-aut{
+		flex:1;	
+		height:0.666667rem;
+		line-height: 0.666667rem;
+		text-align: center;
+	}
+	#xfooter-xfooter .xfooter-aut span{
+		margin-right: 0.04rem;
+	}
+</style>

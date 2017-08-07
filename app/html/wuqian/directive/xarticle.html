@@ -1,31 +1,22 @@
-<div id="xarticle-acticle">
+<div id="xarticle-acticle" ng-repeat="i in data">
 	<div class="xarticle-imgs">
 		<img src="../app/images/at1.jpg" alt="">
 	</div>
 	<div class="xarticle-info">
-		<span>产品</span>|
-		<span>临沭卡</span>|
-		<span>1小时前</span>
+		<span>技术</span>|
+		<span>{{i.category}}</span>|
+		<span>{{i.createOn|date:yy-mm-dd}}</span>
 		<a href="#" class="xarticle-mesage">
 			<span>信息</span>
 			<span>1</span>
 		</a>
 	</div>
 	<div class="xarticle-content">
-		<h2 class="xarticle-title">马自达 ：经历核爆而不死的创始人，给了它火焰般的内涵</h2>
+		<h2 class="xarticle-title">{{i.title}}</h2>
 		<div class="xarticle-contain">
-			<p>车标史栏目已经更新了几个月之久，而我们一直没有写过日系品牌的缘故，在于日本这个国度的严谨和固守，使得很多车企几十年都没有换过车标。</p>
-			<p>而相对起来，日本有一个充满创意与开拓精神的品牌，在技术上总喜欢独树一帜，却又不算离经叛道；在销量上难称第一梯队，却又从不会让人淡忘。</p>
-			<p>它，就是马自达。</p>
-			<div class="xarticle-imgs">
-				<img src="../app/images/at1.jpg" alt="">
-			</div>
-		</div>
-		<h3>
-			一个经历过原子弹爆炸的人，给它起了名字
-		</h3>
-		<div class="xarticle-arc">
-			<p>马自达最开始的业务，不仅跟车没关系，连跟马都没有关系，它是做葡萄酒瓶的软木塞的。</p>
+			<p>{{i.p1}}</p>
+			<p>{{i.p2}}</p>
+			<p>{{i.p3}}</p>
 		</div>
 	</div>
 </div>
@@ -76,7 +67,7 @@
 		width: 100%;
 	}
 	#xarticle-acticle .xarticle-contain p{
-		font-size: 0.16rem;
+		font-size: 0.186667rem;
 		line-height: 0.373333rem;
 		margin-bottom: 0.4rem;
 		padding:0 0.266667rem;
@@ -90,7 +81,7 @@
 	    color: #494949;
 	}
 	#xarticle-acticle .xarticle-arc p{
-		font-size: 0.16rem;
+		font-size: 0.186667rem;
 		line-height: 0.373333rem;
 		margin:0 0.266667rem 0.4rem 0.266667rem;
 	}
