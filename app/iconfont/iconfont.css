@@ -7,6 +7,15 @@
   url('//at.alicdn.com/t/font_kheiwewnln7jsjor.svg?t=1501913000896#iconfont') format('svg'); /* iOS 4.1- */
 }
 
+@font-face {
+  font-family: 'iconfont';  /* project id 375342 */
+  src: url('//at.alicdn.com/t/font_airunl5yy6zxs9k9.eot');
+  src: url('//at.alicdn.com/t/font_airunl5yy6zxs9k9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_airunl5yy6zxs9k9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_airunl5yy6zxs9k9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_airunl5yy6zxs9k9.svg#iconfont') format('svg');
+}
+
 .iconfont {
   font-family:"iconfont" !important;
   font-size:16px;

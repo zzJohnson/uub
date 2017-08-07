@@ -18,6 +18,17 @@
 			templateUrl:'../app/html/John/template/reg.html'
 		})
 		
+//-------------我的 路由
+		$stateProvider.state('mine',{
+			url:'/mine',
+			templateUrl:'../app/html/John/template/mine.html'
+		})
+		.state('mine.collect',{
+			url:'/collect',
+			templateUrl:'../app/html/John/template/collect.html'
+		})
+
+
 //----------------
 		 $stateProvider.state('nav',{
 		 	url:'/nav',

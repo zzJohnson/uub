@@ -46,7 +46,7 @@
 				}
 
 				userlist = JSON.parse(userlist);
-				console.log(userlist)
+				console.log('获取到的userlist：',userlist)
 
 				//记录数值
 				scope.username = '';
@@ -83,6 +83,10 @@
 						if (i.un == un) {
 							ishave = !ishave;
 							if (i.psw == psw) {
+								console.log('登陆成功')
+								var user = {name:i.un,psw:i.psw};
+								localStorage.setItem('user',JSON.stringify(user));
+								console.log(localStorage.getItem('user'));
 								location.href = "#";
 								window.location.reload();
 							}else{
@@ -96,6 +100,7 @@
 						scope.warn = '没有该用户名';
 						scope.isShowWarn = true;
 					}
+
 				}
 
 			}
@@ -109,7 +114,7 @@
 			link:function(scope,ele,attr){
 				//判断cookie中有无用户列表，有则获取，无则创建
 				var cookies = document.cookie;
-				var userlist;
+				var userlist = [];
 				if (cookies.length>0) {
 					//拆分成数组
 					cookies = cookies.split('; ');
@@ -206,6 +211,72 @@
 					document.cookie = 'userlist='+userlist;
 					alert('注册成功');
 				}
+			}
+		}
+	}]);
+//------------mine的组件
+	//头部
+	directives.directive('xmyh',[function(){
+		return {
+			templateUrl:"../app/html/John/directive/xmyh.html",
+			link(scope,ele,attr){
+				scope.user = JSON.parse(localStorage.getItem('user'));
+				if (!scope.user) {
+					alert('请先登录');
+					location.href = "#!/logreg/login";
+				}
+				console.log(scope.user);
+
+				//退出
+				scope.quit = function(){
+					console.log('退出');
+					localStorage.removeItem('user');
+					window.location.reload();
+				};
+
+				//tabs选择
+				scope.tabs = [{
+					id:1,
+					text:'我的动态'
+				},{
+					id:2,
+					text:'我的收藏'
+				},{
+					id:3,
+					text:'消息中心'
+				}];
+
+				scope.selectedTab = 2;
+
+				scope.select = function(a){
+					console.log(a)
+					scope.selectedTab = a;
+				};
+			}
+		}
+	}]);
+	
+	//收藏
+	directives.directive('xcollect',[function(){
+		return {
+			templateUrl:"../app/html/John/directive/xcollect.html",
+			link(scope,ele,attr){
+				scope.collect = [{
+					title:'被动画师们嫌弃了一个世纪的转描技术，却一直活到了今天',
+					pic:'http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/08/maxresdefault-4.jpg',
+					name:'动画学术趴',
+					date:'今天 14:48'
+				},{
+					title:'iPhone 8 又曝新特性：智能场景相机+人脸识别平放可用',
+					pic:'http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/08/forbes-iphone-8-2-1024x576.jpg',
+					name:'胡洋',
+					date:'今天 08:12'
+				},{
+					title:'这个建在铁轨上的旧城区，仿佛就是行走的 798 艺术区',
+					pic:'http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/08/moss.jpg',
+					name:'李超凡',
+					date:'今天 08:15'
+				}]
 			}
 		}
 	}]);
