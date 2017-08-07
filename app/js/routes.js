@@ -33,18 +33,14 @@
 		 $stateProvider.state('nav',{
 		 	url:'/nav',
 		 	templateUrl:'../app/html/heziyang/test.html'
-		 }).state('search',{
-		 	url:'/search',
-		 	templateUrl:'../app/html/heziyang/search.html'
 		 })
-
 // ----------------
 		
 
-//		$stateProvider.state('index',{
-//			url:'/detail',
-//			templateUrl: '../app/html/wuqian/detail.html'
-//		});
+		$stateProvider.state('detail',{
+			url:'/detail',
+			templateUrl: '../app/html/wuqian/detail.html'
+		});
 
 		$urlRouterProvider.when("","/index");
 	}]);
