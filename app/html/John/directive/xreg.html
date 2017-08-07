@@ -1,1 +1,54 @@
-<div>这里是注册</div>
+<form class="reg_con">
+	<input type="text" placeholder="Email 地址" ng-focus="isfocus(1)" ng-blur="isfocus(1)" ng-class="{'reg_focus':showemail}" ng-model="email" ng-keyup="checkEmail()">
+
+	<input type="text" placeholder="昵称" ng-focus="isfocus(2)" ng-blur="isfocus(2)" ng-class="{'reg_focus':showuser}" ng-model="username" ng-keyup="checkuser()">
+
+	<input type="password" placeholder="密码" ng-focus="isfocus(3)" ng-blur="isfocus(3)" ng-class="{'reg_focus':showpsw}" ng-model="password" ng-keyup="checkpsw()">
+	
+	<input type="password" placeholder="密码确认" ng-focus="isfocus(4)" ng-blur="isfocus(4)" ng-class="{'reg_focus':showrpsw}" ng-model="repassword" ng-keyup="checkrpsw()">
+
+	<button ng-click="checkAll()" ng-class="{'sel':canreg}">注册</button>
+	<p class="warn" ng-show="isShowWarn">{{warn}}</p>
+</form>
+
+<style>
+	.reg_con{
+		padding:0 0.4rem;
+	}
+
+	.reg_con input{
+		margin: 0;
+		padding: 0.20rem 0;
+		width: 100%;
+		height: auto;
+		font-size: 0.26rem;
+		line-height: 1;
+		color: rgba(34,39,52,0.5);
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid #e6e6e6;
+		background: #fff;
+	}
+	.reg_con .reg_focus{
+		border-bottom: 1px solid #000;
+	}
+	.reg_con button{
+		margin: 30px 0 40px;
+	    width: 100%;
+	    font-size: 0.26rem;
+	    line-height: 45px;
+	    color: #fff;
+	    background-color: #ccc;
+	    border-style: none;
+	    border-radius: 0;
+	}
+	.reg_con .sel{
+		background-color: #e12f11;
+	}
+
+	.warn{
+		color:#e12f11;
+		font-size:0.20rem;
+		text-align:center;
+	}
+</style>
