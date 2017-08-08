@@ -9,8 +9,27 @@
 		return {
 			templateUrl:'../app/html/John/directive/logheader.html',
 			link:function(scope,ele,attr){
-				scope.abc = '123';
-				scope.isSelected = true;
+
+				//处理页面刷新时tab的高亮
+				var lor = localStorage.getItem('lor');
+				if (lor) {
+					if (lor == 'l') {
+						scope.isSelected = true;
+					}else{
+						scope.isSelected = false;
+					}
+				}else{
+					scope.isSelected = true;
+				}
+
+				var user = localStorage.getItem('user');
+				if (user) {
+					alert('已登录');
+					location.href = "#!/mine/collect";
+					window.location.reload();
+				}
+
+				//高亮
 				scope.changeSelected = function(a){
 					if(a == 'login'){
 						scope.isSelected = true;
@@ -27,6 +46,9 @@
 		return {
 			templateUrl:'../app/html/John/directive/xlogin.html',
 			link:function(scope,ele,attr){
+				//记录此页是login还是reg
+				localStorage.setItem('lor','l');
+
 				//判断cookie中有无用户列表，有则获取，无则创建
 				var cookies = document.cookie;
 				var userlist;
@@ -46,7 +68,7 @@
 				}
 
 				userlist = JSON.parse(userlist);
-				console.log('获取到的userlist：',userlist)
+				// console.log('获取到的userlist：',userlist)
 
 				//记录数值
 				scope.username = '';
@@ -84,7 +106,7 @@
 							ishave = !ishave;
 							if (i.psw == psw) {
 								console.log('登陆成功')
-								var user = {name:i.un,psw:i.psw};
+								var user = {un:i.un,psw:i.psw};
 								localStorage.setItem('user',JSON.stringify(user));
 								console.log(localStorage.getItem('user'));
 								location.href = "#";
@@ -112,9 +134,21 @@
 		return {
 			templateUrl:'../app/html/John/directive/xreg.html',
 			link:function(scope,ele,attr){
+				//判断是否已经登陆
+				if (localStorage.getItem('user')) {
+					console.log('已登录')
+					// alert('已登录');
+					// location.href = '#';
+					// window.location.reload();
+				};
+
+				//记录此页是login还是reg
+				localStorage.setItem('lor','r');
+
 				//判断cookie中有无用户列表，有则获取，无则创建
 				var cookies = document.cookie;
 				var userlist = [];
+				userlist = JSON.stringify(userlist)
 				if (cookies.length>0) {
 					//拆分成数组
 					cookies = cookies.split('; ');
@@ -124,14 +158,10 @@
 							userlist = arr[1];
 						}
 					})
-				}else{
-					userlist = [];
-					userlist = JSON.stringify(userlist);
-					document.cookie = 'userlist='+userlist;
 				}
 
 				userlist = JSON.parse(userlist);
-				// console.log(userlist)
+				console.log(userlist)
 
 				//记录数值
 				scope.email = '';
@@ -185,6 +215,21 @@
 						return false;
 					}
 
+					var isrepeat = false;
+					userlist.forEach(function(item){
+						item = JSON.parse(item);
+
+						if (scope.username == item.un) {
+							scope.warn = '已有的昵称';
+							scope.isShowWarn = true;
+							isrepeat = true;
+						}
+					})
+
+					if(isrepeat){
+						return false;
+					}
+
 					if(!/^\S{6,20}$/.test(scope.password)){
 						scope.warn = '密码要求 6-20位';
 						scope.isShowWarn = true;
@@ -196,7 +241,7 @@
 						scope.isShowWarn = true;
 						return false;
 					}
-					console.log('注册')
+
 					var user = {
 						un:scope.username,
 						psw:scope.password
@@ -209,7 +254,12 @@
 					// console.log(userlist);
 
 					document.cookie = 'userlist='+userlist;
-					alert('注册成功');
+					
+					localStorage.setItem('user',JSON.stringify(user));
+
+					alert('注册成功,已自动登陆');
+					location.href = '#';
+					window.location.reload();
 				}
 			}
 		}
@@ -225,32 +275,36 @@
 					alert('请先登录');
 					location.href = "#!/logreg/login";
 				}
-				console.log(scope.user);
+				// console.log(scope.user);
+
+				scope.tab = 'collect'
 
 				//退出
 				scope.quit = function(){
-					console.log('退出');
+					// console.log('退出');
 					localStorage.removeItem('user');
 					window.location.reload();
 				};
 
 				//tabs选择
 				scope.tabs = [{
-					id:1,
+					id:'state',
 					text:'我的动态'
 				},{
-					id:2,
+					id:'collect',
 					text:'我的收藏'
 				},{
-					id:3,
+					id:'msg',
 					text:'消息中心'
 				}];
 
-				scope.selectedTab = 2;
+				scope.selectedTab = localStorage.getItem('m');
 
 				scope.select = function(a){
 					console.log(a)
 					scope.selectedTab = a;
+					localStorage.setItem('m',a)
+					location.href = "#!/mine/"+a;
 				};
 			}
 		}
@@ -277,6 +331,26 @@
 					name:'李超凡',
 					date:'今天 08:15'
 				}]
+			}
+		}
+	}]);
+
+	//动态
+	directives.directive('xstate',[function(){
+		return {
+			templateUrl:"../app/html/John/directive/xstate.html",
+			link(scope,ele,attr){
+				
+			}
+		}
+	}]);
+
+	//消息
+	directives.directive('xmsg',[function(){
+		return {
+			templateUrl:"../app/html/John/directive/xmsg.html",
+			link(scope,ele,attr){
+				
 			}
 		}
 	}]);

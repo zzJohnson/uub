@@ -27,7 +27,14 @@
 			url:'/collect',
 			templateUrl:'../app/html/John/template/collect.html'
 		})
-
+		.state('mine.state',{
+			url:'/state',
+			templateUrl:'../app/html/John/template/state.html'
+		})
+		.state('mine.msg',{
+			url:'/msg',
+			templateUrl:'../app/html/John/template/msg.html'
+		})
 
 //----------------
 		 $stateProvider.state('nav',{
