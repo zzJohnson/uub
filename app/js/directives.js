@@ -3,8 +3,8 @@
 
 	/**********************头部导航栏start*******************************/
 
-//----------登录注册的组件
-	//头部
+//----------登录注册的路由
+	//logreg头部
 	directives.directive('logheader',[function(){
 		return {
 			templateUrl:'../app/html/John/directive/logheader.html',
@@ -264,8 +264,9 @@
 			}
 		}
 	}]);
-//------------mine的组件
-	//头部
+
+//------------mine的路由
+	//mine头部
 	directives.directive('xmyh',[function(){
 		return {
 			templateUrl:"../app/html/John/directive/xmyh.html",
@@ -461,5 +462,45 @@
 		}
 	}]);
 
+	/**********************首页组件*******************************/
+	//轮播图组件
+	directives.directive('mbanner',[function(){
+		return {
+			templateUrl:'../app/html/ma/directives/mbanner.html',
+			link(scope,ele,attr){
+				//实例化轮播图插件
+				var mySwiper = new Swiper ('.mbanner-swiper-container',{
+					// loop:true,				    
+				    pagination: '.swiper-pagination',
+				    paginationClickable: true,
+				    paginationBulletRender: function (swiper, index, className) {
+				    	return '<span class="' + className + '">' + (index + 1) + '</span>';
+				    }
+				});
+				// $http({
+				// 	method:"post",
+				// 	url:"http://www.uubook.net:8080/rest/searchArticleByPage",
+				// 	data:{
+				// 		kw:"node",
+				// 		pageSize:10,
+				// 		currentPage:1
+				// 	}
+				// }).then((data)=>{
+				// 	console.log(data);
+				// })
+				
+			}
+		}
+	}])
+
+	//文章内容组件
+	directives.directive("mcontent",[function(){
+		return {
+			templateUrl:'../app/html/ma/directives/mcontent.html',
+			link(scope,ele,attr){
+				
+			}
+		}
+	}])
 })();
 
