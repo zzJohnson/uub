@@ -31,6 +31,13 @@
 //			templateUrl: '../app/html/wuqian/detail.html'
 //		});
 
+
+//-----------------首页路由
+		$stateProvider.state('home',{
+			url:'/home',
+			templateUrl:"../app/html/ma/template/home.html"
+		})
+
 		$urlRouterProvider.when("","/index");
 	}]);
 })();
