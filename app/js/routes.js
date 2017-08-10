@@ -22,11 +22,15 @@
 		 $stateProvider.state('nav',{
 		 	url:'/nav',
 		 	templateUrl:'../app/html/heziyang/test.html'
+		 }).state('search',{
+		 	url:'/search',
+		 	templateUrl:'../app/html/heziyang/search.html'
 		 })
-		 console.log(333)
+		
 
 // ----------------
 		
+
 
 		$stateProvider.state('index',{
 			url:'/detail',
@@ -35,8 +39,18 @@
 		.state('clist',{
 			url:'/clist',
 		 	templateUrl:'../app/html/cxg/product/clist.html'
+		}).state('cperson',{
+			url:'/cperson',
+		 	templateUrl:'../app/html/cxg/person/cperson.html'
+		}).state('cword',{
+			url:'/cword',
+		 	templateUrl:'../app/html/cxg/cword/ccword.html'
 		});
 		
+
+
+
+
 		$urlRouterProvider.when("","/index");
 	}]);
 })();
