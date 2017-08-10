@@ -5,11 +5,12 @@
 
 //----------登录注册的路由
 	//logreg头部
-	directives.directive('logheader',[function(){
+	directives.directive('logheader',["$http","$state","$window",function($http,$state,$window){
 		return {
 			templateUrl:'../app/html/John/directive/logheader.html',
 			link:function(scope,ele,attr){
-
+				// console.log($state.params)
+				// console.log(window.location.hash);
 				//处理页面刷新时tab的高亮
 				var lor = localStorage.getItem('lor');
 				if (lor) {
@@ -161,7 +162,7 @@
 				}
 
 				userlist = JSON.parse(userlist);
-				console.log(userlist)
+				// console.log(userlist)
 
 				//记录数值
 				scope.email = '';

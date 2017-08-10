@@ -1,6 +1,6 @@
 <form class="login_con">
 	<input type="text" placeholder="用户名" ng-focus="isfocus(1)" ng-blur="isfocus(1)" ng-class="{'login_focus':showuser}" ng-model="username">
-	<input type="text" placeholder="密码" ng-focus="isfocus(2)" ng-blur="isfocus(2)" ng-class="{'login_focus':showpsw}" ng-model="password">
+	<input type="password" placeholder="密码" ng-focus="isfocus(2)" ng-blur="isfocus(2)" ng-class="{'login_focus':showpsw}" ng-model="password">
 	
 
 	<button ng-click="login()" ng-class="{'sel':canreg}">登陆</button>
