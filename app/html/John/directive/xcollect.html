@@ -1,0 +1,55 @@
+<div class="collect">
+	<ul class="collect_list">
+		<li class="collect_content" ng-repeat="a in collect">
+			<div class="collect_container">
+				<div class="collect_pic">
+					<img ng-src="{{a.pic}}">
+				</div>
+				<h2><a>{{a.title}}</a></h2>
+				<div class="collect_info">{{a.name}} | {{a.date}}</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<style>
+	.collect{
+		padding:0 0.2rem;
+		height: 100%;
+		background-color: #fafafa;
+	}
+	.collect_list{
+	
+	}
+	.collect_content{
+		padding-top: 0.2rem;
+	    border-bottom: 1px solid #e6e6e6;
+	    position:relative;
+	    overflow: hidden;
+	}
+	.collect_container{
+		position: relative;
+	    padding: 10px;
+	    background: #fff;
+	    border-radius: 4px;
+	}
+	.collect_content .collect_pic{
+		width: 1.2rem;
+		height: 0.8rem;
+		float:left;
+	}
+	.collect_pic img{
+		width: 100%;
+		height: 100%;
+	}
+	.collect_content h2{
+		margin-left:1.3rem;
+	    font-weight: 400;
+    	font-size: 0.14rem
+	}
+	.collect_content .collect_info{
+		margin-left:1.3rem;
+	    margin-top: 9px;
+    	color: #acacac;
+	}
+</style>

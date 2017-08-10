@@ -1,82 +1,103 @@
-<div id="topnav">
-	<button class="iconfont icon-cebianlan" id="btn_topbar" ng-click="show()"></button>
-	<div ng-class="{navcontent_show:bool==true,navcontent_hide:bool==false}">
-		<div class="nav_title">
-			<div style="border-bottom: 0.013333rem solid #999999;width: 100%;height: 100%;">
-				<a href="#" class="logo"><img src="../app/images/logo.png" /></a>
-				<div><a href="#" class="icon-fangdajing iconfont search"></a></div>
-				<div class="login_area">
-					<p style="font-size:0.186666rem;">
-						<a	href="#">登陆</a>
-						|
-						<a href="#">注册</a>
-					</p>
+<div>
+	<div id="topnav">
+		<button class="iconfont icon-leftbar" id="btn_topbar" ng-click="show()"></button>		
+		<div ng-class="{navcontent_show:bool==true,navcontent_hide:bool==false}" ng-if="isShow">
+			<div class="nav_title">
+				<div style="border-bottom: 0.013333rem solid #999999;width: 100%;height: 100%;">
+					<a href="#" class="logo"><img src="../app/images/logo.png" /></a>
+					<div>
+						<a class="icon-fangdajing iconfont search" ng-click="switchSearchBar()"></a>
+					</div>
+					<div class="login_area">
+						<p style="font-size:0.186666rem;">
+							<a href="#!/logreg/login">登陆</a>
+							|
+							<a href="#!/logreg/reg">注册</a>
+						</p>
+					</div>
 				</div>
+
 			</div>
-			
+			<div class="nav_content">
+				<ul>
+					<li ng-repeat="ele in nav_content">
+						<a href="#" data-id="ele.id">
+							{{ele.title}}
+						</a>
+					</li>
+				</ul>
+
+			</div>
 		</div>
-		<div class="nav_content">
-			<ul>
-				<li ng-repeat="ele in nav_content">
-					<a href="#" data-id="ele.id">
-						{{ele.title}}	
-					</a>
-				</li>
-			</ul>
-			
-		</div>
+		<div ng-class="{shield_show:bool==true,shield_hide:bool==false}" ng-click="hide()" ng-if="isShow"></div>
 	</div>
-	<div ng-class="{shield_show:bool==true,shield_hide:bool==false}" ng-click="hide()"></div>
+	<div id="search_bar" ng-class="{search_bar_show:searchBool==true,search_bar_hide:searchBool==false,search_bar_isHide:isHide==true}" ng-if="isShow">
+		<i class="iconfont icon-web-quit" style="color: red;font-size: 0.213333rem;position: absolute;top: 0.266666rem;right: 0.266666rem;" ng-click="search_quit()"></i>
+		<div class="search_container">
+			<i class="iconfont icon-fangdajing" style="font-size: 0.266666rem;position: absolute;top:0.04rem;left: 0;"></i>
+			<input type="text" class="search_input" ng-model="inputContent"/>
+		</div>
+		<div class="searchBtn_container"><button class="search_btn">搜索</button></div>
+	</div>
 </div>
 
-
 <style>
-	#topnav {
-		height: 100%;
-	}
 	#topnav .nav_title {
 		width: 100%;
-		height: 0.933333rem;	
+		height: 0.933333rem;
 		padding: 0.2rem;
 		box-sizing: border-box;
 		position: relative;
 	}
+	
 	#topnav .search {
 		position: absolute;
 		top: 0.266666rem;
 		left: 3.466666rem;
 	}
+	
 	#topnav .login_area {
 		position: absolute;
 		top: 0.266666rem;
 		left: 3.8rem;
 	}
+	
 	#topnav .login_area a {
 		color: #999;
 		font-size: 0.186666rem;
 	}
+	
 	#topnav .logo {
 		display: block;
 		width: 1.333333rem;
-		float:left;
+		float: left;
 	}
+	
 	#topnav .logo img {
 		width: 100%;
 	}
+	
 	#topnav #btn_topbar {
 		display: block;
-		background: none;
+		background: rgba(233,233,233,0.5);
 		border: 0;
-		font-size: 0.4rem;
+		font-size: 0.25rem;
 		position: fixed;
-		top: 0.4rem;
-		left: 0.4rem;
+		top: 0.3rem;
+		left: 0.3rem;
 		outline: 0;
+		z-index: 100;
+		width: 0.6rem;
+		height: 0.6rem;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 0.4rem;
 	}
+	
 	#topnav .navcontent_show {
 		width: 100%;
 		height: 5.333333rem;
-		background: rgba(250,250,250,0.9);
+		background: rgba(250, 250, 250, 0.9);
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -86,10 +107,11 @@
 		animation-iteration-count: 1;
 		z-index: 999;
 	}
+	
 	#topnav .navcontent_hide {
 		width: 100%;
 		height: 5.333333rem;
-		background: rgba(255,255,255,0.9);
+		background: rgba(255, 255, 255, 0.9);
 		position: fixed;
 		top: -5.333333rem;
 		left: 0;
@@ -99,6 +121,7 @@
 		animation-iteration-count: 1;
 		z-index: 999;
 	}
+	
 	#topnav .shield_show {
 		width: 100%;
 		height: 100%;
@@ -112,6 +135,7 @@
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}
+	
 	#topnav .shield_hide {
 		width: 100%;
 		height: 100%;
@@ -125,39 +149,144 @@
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}
+	
 	.nav_content {
 		padding: 0.2rem;
 		overflow: hidden;
 	}
+	
 	.nav_content li {
 		float: left;
 		width: 33%;
 		height: 0.4rem;
 	}
+	
 	.nav_content a {
 		font-size: 0.213333rem;
 		width: 100%;
 		height: 100%;
 		display: block;
 		text-align: center;
-		color:#404246;
+		color: #404246;
 		line-height: 0.4rem;
 	}
-	@-webkit-keyframes navcontent_show{
-		from{top: -5.333333rem;}
-		to{top:0}
+	.search_bar_show {
+		background: rgba(250, 250, 250, 0.9);
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		right: 0;
+		animation: search_bar_show;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		animation-iteration-count: 1;
+		z-index: 1000;
 	}
-	@-webkit-keyframes navcontent_hide{
-		from{top: 0;}
-		to{top:-5.333333rem;}
+	.search_bar_hide {
+		background: rgba(250, 250, 250, 0.9);
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		right: -100%;
+		top: 0;
+		animation: search_bar_hide;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		animation-iteration-count: 1;
+		z-index: 1000;
 	}
-	@-webkit-keyframes shield_show{
-		from{opacity: 0;bottom: 100%;}
-		to{opacity: 0.4;top: 0;}
+	.search_bar_isHide {
+		opacity: 0;
 	}
-	@-webkit-keyframes shield_hide{
-		from{opacity: 0.4;top: 0;}
-		to{opacity: 0;bottom: 100%;}
+	#search_bar .search_container {
+		width: 75%;
+		border-bottom: 0.013333rem solid #000;
+		margin: 2rem auto 0;
+		padding-left: 0.333333rem;
+		position: relative;
+		box-sizing: border-box;
+	}
+	#search_bar .search_input {
+		outline: 0;
+		background: none;
+		border: 0;
+		width: 100%;
+		height: 0.4rem;
+		padding-bottom: 0.066666rem;
+		font-size:0.266666rem;
+	}
+	#search_bar .search_btn {
+		background: none;
+		border: 0;
+		width: 100%;
+		outline: 0;
+		color: white;
+		display: block;
+		height: 100%;
+		font-size: 0.266666rem;
+	}
+	#search_bar .searchBtn_container {
+		width: 75%;
+		margin: 20px auto;
+		background: #428bca;
+		height: 0.533333rem;
+		line-height: 0.533333rem;
+		border-radius: 0.066666rem;
+	}
+	@-webkit-keyframes navcontent_show {
+		from {
+			top: -5.333333rem;
+		}
+		to {
+			top: 0
+		}
+	}
+	
+	@-webkit-keyframes navcontent_hide {
+		from {
+			top: 0;
+		}
+		to {
+			top: -5.333333rem;
+		}
+	}
+	
+	@-webkit-keyframes shield_show {
+		from {
+			opacity: 0;
+			bottom: 100%;
+		}
+		to {
+			opacity: 0.4;
+			top: 0;
+		}
+	}
+	
+	@-webkit-keyframes shield_hide {
+		from {
+			opacity: 0.4;
+			top: 0;
+		}
+		to {
+			opacity: 0;
+			bottom: 100%;
+		}
+	}
+	@keyframes search_bar_show {
+		from{
+			right: -100%;
+		}
+		to{
+			right:0;
+		}
+	}
+	@keyframes search_bar_hide {
+		from{
+			right: 0;
+		}
+		to{
+			right:-100%;
+		}
 	}
 </style>
-

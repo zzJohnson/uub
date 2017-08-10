@@ -18,18 +18,32 @@
 			templateUrl:'../app/html/John/template/reg.html'
 		})
 		
+//-------------我的 路由
+		$stateProvider.state('mine',{
+			url:'/mine',
+			templateUrl:'../app/html/John/template/mine.html'
+		})
+		.state('mine.collect',{
+			url:'/collect',
+			templateUrl:'../app/html/John/template/collect.html'
+		})
+		.state('mine.state',{
+			url:'/state',
+			templateUrl:'../app/html/John/template/state.html'
+		})
+		.state('mine.msg',{
+			url:'/msg',
+			templateUrl:'../app/html/John/template/msg.html'
+		})
+
 //----------------
 		 $stateProvider.state('nav',{
 		 	url:'/nav',
 		 	templateUrl:'../app/html/heziyang/test.html'
-		 }).state('search',{
-		 	url:'/search',
-		 	templateUrl:'../app/html/heziyang/search.html'
 		 })
-		
-
 // ----------------
 		
+
 
 
 		$stateProvider.state('index',{
@@ -49,8 +63,19 @@
 		
 
 
+		$stateProvider.state('detail',{
+			url:'/detail',
+			templateUrl: '../app/html/wuqian/detail.html'
+		});
 
 
-		$urlRouterProvider.when("","/index");
+//-----------------首页路由
+		$stateProvider.state('home',{
+			url:'/home',
+			templateUrl:"../app/html/ma/template/home.html"
+		})
+
+
+		$urlRouterProvider.when("","/home");
 	}]);
 })();
