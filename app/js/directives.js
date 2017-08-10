@@ -419,6 +419,14 @@
 					{id:14,title:'python'}
 
 				]
+				scope.login_area_bool = true;
+				var cookies = document.cookie.split('; ');
+				cookies.forEach(function(ele){
+					var temp = ele.split('=');
+					if(temp[0] == 'userlist') {
+						scope.login_area_bool = false;
+					}
+				})
 
 			}
 		}

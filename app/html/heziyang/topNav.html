@@ -9,10 +9,14 @@
 						<a class="icon-fangdajing iconfont search" ng-click="switchSearchBar()"></a>
 					</div>
 					<div class="login_area">
-						<p style="font-size:0.186666rem;">
+						<p style="font-size:0.186666rem;" ng-show="login_area_bool">
 							<a href="#!/logreg/login">登陆</a>
 							|
 							<a href="#!/logreg/reg">注册</a>
+						</p>
+						<p ng-show="!login_area_bool">
+							<span><img src="" /></span>
+							<span>退出</span>
 						</p>
 					</div>
 				</div>
