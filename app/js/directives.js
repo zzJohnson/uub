@@ -15,6 +15,7 @@
 				// console.log(window.location.hash);
 				//处理页面刷新时tab的高亮
 				var lor = localStorage.getItem('lor');
+				// console.log(lor)
 				if (lor) {
 					if (lor == 'l') {
 						scope.isSelected = true;
@@ -281,6 +282,7 @@
 				scope.user = JSON.parse(localStorage.getItem('user'));
 				if (!scope.user) {
 					alert('请先登录');
+					localStorage.setItem('lor','l');
 					location.href = "#!/logreg/login";
 				}
 				// console.log(scope.user);
@@ -688,6 +690,4 @@
 			}
 		}
 	}])
-})();
-
 })();
