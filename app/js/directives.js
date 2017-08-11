@@ -7,23 +7,18 @@
 
 //----------登录注册的路由
 	//logreg头部
-	directives.directive('logheader',["$http","$state","$window",function($http,$state,$window){
+	directives.directive('logheader',["$http","$state","$window","$rootScope",function($http,$state,$window,$rootScope){
 		return {
 			templateUrl:'../app/html/John/directive/logheader.html',
 			link:function(scope,ele,attr){
 				// console.log($state.params)
-				// console.log(window.location.hash);
-				//处理页面刷新时tab的高亮
-				var lor = localStorage.getItem('lor');
-				// console.log(lor)
-				if (lor) {
-					if (lor == 'l') {
-						scope.isSelected = true;
-					}else{
-						scope.isSelected = false;
-					}
-				}else{
+				console.log(window.location.hash.split('/')[2]);
+				var l = window.location.hash.split('/')[2];
+				
+				if (l == 'login') {
 					scope.isSelected = true;
+				}else if(l == 'reg'){
+					scope.isSelected = false;
 				}
 
 				var user = localStorage.getItem('user');
@@ -52,8 +47,6 @@
 		return {
 			templateUrl:'../app/html/John/directive/xlogin.html',
 			link:function(scope,ele,attr){
-				//记录此页是login还是reg
-				localStorage.setItem('lor','l');
 
 				//判断cookie中有无用户列表，有则获取，无则创建
 				var cookies = document.cookie;
@@ -145,13 +138,8 @@
 				//判断是否已经登陆
 				if (localStorage.getItem('user')) {
 					console.log('已登录')
-					// alert('已登录');
-					// location.href = '#';
-					// window.location.reload();
-				};
 
-				//记录此页是login还是reg
-				localStorage.setItem('lor','r');
+				};
 
 				//判断cookie中有无用户列表，有则获取，无则创建
 				var cookies = document.cookie;
@@ -263,8 +251,8 @@
 
 					document.cookie = 'userlist='+userlist;
 					
-					localStorage.setItem('user',JSON.stringify(user));
-
+					localStorage.setItem('user',user);
+					console.log(localStorage.getItem('user'));
 					alert('注册成功,已自动登陆');
 					location.href = '#';
 					window.location.reload();
@@ -279,21 +267,25 @@
 		return {
 			templateUrl:"../app/html/John/directive/xmyh.html",
 			link(scope,ele,attr){
+				//判断
 				scope.user = JSON.parse(localStorage.getItem('user'));
 				if (!scope.user) {
 					alert('请先登录');
-					localStorage.setItem('lor','l');
-					location.href = "#!/logreg/login";
+					location.href = "#";
+					window.location.reload();
+				} else{
+					var m = window.location.hash.split('/')[2];
+					scope.selectedTab = m;
+					location.href = "#!/mine/"+m;
 				}
-				// console.log(scope.user);
-
-				scope.tab = 'collect'
 
 				//退出
 				scope.quit = function(){
-					// console.log('退出');
+					console.log('退出');
 					localStorage.removeItem('user');
+					location.href = '#';
 					window.location.reload();
+
 				};
 
 				//tabs选择
@@ -308,12 +300,10 @@
 					text:'消息中心'
 				}];
 
-				scope.selectedTab = localStorage.getItem('m');
 
 				scope.select = function(a){
 					console.log(a)
 					scope.selectedTab = a;
-					localStorage.setItem('m',a)
 					location.href = "#!/mine/"+a;
 				};
 			}
