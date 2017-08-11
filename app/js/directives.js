@@ -218,7 +218,7 @@
 					}
 
 					if(!/^[\w\-]{3,20}$/.test(scope.username)){
-						scope.warn = '昵称要求 6-20位 中英文数字或'-'符号';
+						scope.warn = "昵称要求 6-20位 中英文数字或'-'符号";
 						scope.isShowWarn = true;
 						return false;
 					}
