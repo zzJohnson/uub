@@ -1,0 +1,61 @@
+<div>
+	<ul class="clistsontent">
+		<li ng-repeat='arr in arrs'>
+			<p>
+				<span class="senttime">{{arr.time}}</span>
+				<span class="review">评论：{{arr.review}}</span>
+			</p>
+			<p class="listtitle">{{arr.title}}</p>
+			<p class="listdesc">{{arr.listdesc}}</p>
+			<img src={{arr.imgurl}} alt="" />
+		</li>
+	</ul>
+</div>
+
+<style>
+	.clistsontent {
+		width: 100%;
+	}
+	
+	.clistsontent li {
+		width: 100%;
+		height: 100%;
+		padding-top: 0.64rem;
+	}
+	
+	.clistsontent li p {
+		padding: 0 0.24rem;
+	}
+	
+	.clistsontent li p:first-child {
+		padding-bottom: 0.266666rem;
+	}
+	
+	.senttime,
+	.review {
+		font-size: 0.133333rem;
+		color: #999;
+		font-weight: bolder;
+	}
+	
+	.review {
+		display: inline-block;
+		padding-left: 2.666666rem
+	}
+	
+	.listtitle {
+		font-size: 0.24rem;
+		font-weight: bolder;
+	}
+	
+	.listdesc {
+		margin-top: 0.186666rem;
+		font-size: 0.186666rem;
+		margin-bottom: 0.48rem;
+	}
+	
+	.clistsontent li>img {
+		width: 100%;
+		height: 2.933333rem;
+	}
+</style>

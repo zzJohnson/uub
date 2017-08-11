@@ -44,6 +44,25 @@
 // ----------------
 		
 
+
+
+		$stateProvider.state('index',{
+			url:'/detail',
+			templateUrl: '../app/html/wuqian/detail.html'
+		})
+		.state('clist',{
+			url:'/clist',
+		 	templateUrl:'../app/html/cxg/product/clist.html'
+		}).state('cperson',{
+			url:'/cperson',
+		 	templateUrl:'../app/html/cxg/person/cperson.html'
+		}).state('cword',{
+			url:'/cword',
+		 	templateUrl:'../app/html/cxg/cword/ccword.html'
+		});
+		
+
+
 		$stateProvider.state('detail',{
 			url:'/detail',
 			templateUrl: '../app/html/wuqian/detail.html'
@@ -55,6 +74,7 @@
 			url:'/home',
 			templateUrl:"../app/html/ma/template/home.html"
 		})
+
 
 		$urlRouterProvider.when("","/home");
 	}]);
