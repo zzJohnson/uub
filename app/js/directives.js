@@ -649,7 +649,7 @@
 			link:function(scope,ele,attr){
 				scope.showMore=function(){
 					scope.isShowMore = true;
-					console.log(222)
+					
 				}
 			}
 		}
