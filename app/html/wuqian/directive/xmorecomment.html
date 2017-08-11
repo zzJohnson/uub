@@ -3,7 +3,7 @@
 		<span>4 条评论</span>
 	</div>
 	<ul>
-		<li ng-repeat="i in comment">
+		<li ng-repeat="i in comment" class="list">
 			<div class="hotpinl">
 				<div class="head-pic">
 					<div class="left">
@@ -107,6 +107,10 @@
 	.morecom .back{
 		float:right;
 		color: #dc2811;
+	}
+	.morecom .list{
+		border-bottom:1px dashed #e2e2e2;
+		margin-bottom: 0.266667rem;
 	}
 	.morecom .button{
 		position:fixed;
