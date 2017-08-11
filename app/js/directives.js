@@ -420,14 +420,19 @@
 
 				]
 				scope.login_area_bool = true;
-				var cookies = document.cookie.split('; ');
-				cookies.forEach(function(ele){
-					var temp = ele.split('=');
-					if(temp[0] == 'userlist') {
-						scope.login_area_bool = false;
-					}
-				})
-
+				if(localStorage.getItem('user')) {
+					scope.username = JSON.parse(localStorage.getItem('user')).un;
+					scope.login_area_bool = false;
+				}
+				scope.quit = function(){
+					localStorage.removeItem('user');
+					scope.login_area_bool = true;
+					scope.username = '';
+				}
+				scope.toLogin = function() {
+					scope.bool = false;
+					scope.isShow = false;
+				}
 			}
 		}
 	})
