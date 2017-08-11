@@ -206,7 +206,7 @@
 					}
 
 					if(!/^[\w\-]{3,20}$/.test(scope.username)){
-						scope.warn = '昵称要求 6-20位 中英文数字或'-'符号';
+						scope.warn = "昵称要求 6-20位 中英文数字或'-'符号";
 						scope.isShowWarn = true;
 						return false;
 					}
@@ -251,8 +251,8 @@
 
 					document.cookie = 'userlist='+userlist;
 					
-					localStorage.setItem('user',JSON.stringify(user));
-
+					localStorage.setItem('user',user);
+					console.log(localStorage.getItem('user'));
 					alert('注册成功,已自动登陆');
 					location.href = '#';
 					window.location.reload();
@@ -267,19 +267,25 @@
 		return {
 			templateUrl:"../app/html/John/directive/xmyh.html",
 			link(scope,ele,attr){
+				//判断
 				scope.user = JSON.parse(localStorage.getItem('user'));
 				if (!scope.user) {
 					alert('请先登录');
-					location.href = "#!/home";
+					location.href = "#";
+					window.location.reload();
+				} else{
+					var m = window.location.hash.split('/')[2];
+					scope.selectedTab = m;
+					location.href = "#!/mine/"+m;
 				}
-				
-				location.href = "#!/mine/collect";
 
 				//退出
 				scope.quit = function(){
-					// console.log('退出');
+					console.log('退出');
 					localStorage.removeItem('user');
+					location.href = '#';
 					window.location.reload();
+
 				};
 
 				//tabs选择
@@ -294,12 +300,10 @@
 					text:'消息中心'
 				}];
 
-				scope.selectedTab = localStorage.getItem('m');
 
 				scope.select = function(a){
 					console.log(a)
 					scope.selectedTab = a;
-					localStorage.setItem('m',a)
 					location.href = "#!/mine/"+a;
 				};
 			}
