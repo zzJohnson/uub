@@ -405,7 +405,20 @@
 					{id:14,title:'python'}
 
 				]
-
+				scope.login_area_bool = true;
+				if(localStorage.getItem('user')) {
+					scope.username = JSON.parse(localStorage.getItem('user')).un;
+					scope.login_area_bool = false;
+				}
+				scope.quit = function(){
+					localStorage.removeItem('user');
+					scope.login_area_bool = true;
+					scope.username = '';
+				}
+				scope.toLogin = function() {
+					scope.bool = false;
+					scope.isShow = false;
+				}
 			}
 		}
 	})
@@ -592,13 +605,8 @@
 			}
 		}
 	})
-	directives.directive('xarticle', [function() {
-		return {
-			templateUrl: "../app/html/wuqian/directive/xarticle.html",
-		}
-	}]);
-
-	//--------详情页组件----------
+	/**********************详情页组件*******************************/
+	//--------详情页技术内容组件----------
 	directives.directive('xarticle',["$http", "$window", function($http, $window){
 		return {
 			templateUrl:"../app/html/wuqian/directive/xarticle.html",
@@ -620,21 +628,75 @@
 					"pinlun":"4",
 					"zan":"23",
 					"zhuanf":"34",
+					"time":"6",
 				}];
-				console.log(scope.data)
 			}
 		}
 	}]);
+	//--------详情页技术评论组件----------
 	directives.directive('xcomment',[function(){
 		return {
 			templateUrl:"../app/html/wuqian/directive/xcomment.html",
+			link:function(scope,ele,attr){
+				scope.showMore=function(){
+					scope.isShowMore = true;
+					
+				}
+			}
 		}
 	}]);
+	//--------详情页技术底部组件----------
 	directives.directive('xfooter',[function(){
 		return {
 			templateUrl:"../app/html/wuqian/directive/xfooter.html",
 		}
 	}]);
+	//--------详情页技术更多评论组件----------
+	directives.directive('xmorecomment',[function(){
+		return {
+			templateUrl:"../app/html/wuqian/directive/xmorecomment.html",
+			link:function(scope,ele,attr){
+				scope.isShowMore = false;
+				scope.comment=[{
+					"id":"1",
+					"imgurl":"../app/images/01.png",
+					"name":"星星点灯",
+					"zan":4,
+					"pl":"学习很多东西，简直是大神级别，哈哈",
+					"comefrom":"android",
+					"time":"13:45",
+				},
+				{
+					"id":"2",
+					"imgurl":"../app/images/02.png",
+					"name":"星星点灯2",
+					"zan":3,
+					"pl":"打字时移动光标的便利和app便捷操作真的没法比",
+					"comefrom":"iphone",
+					"time":"16:12",
+				},
+				{
+					"id":"3",
+					"imgurl":"../app/images/03.png",
+					"name":"星星点灯3",
+					"zan":5,
+					"pl":"学习很多知识，深思",
+					"comefrom":"华为",
+					"time":"4:45",
+				},
+				{
+					"id":"4",
+					"imgurl":"../app/images/04.png",
+					"name":"星星点灯4",
+					"zan":5,
+					"pl":"学习很多东西，简直是大神级别，哈哈",
+					"comefrom":"华为",
+					"time":"12:40",
+				}]
+			}
+		}
+	}]);
+
 
 	/**********************首页组件*******************************/
 	//轮播图组件

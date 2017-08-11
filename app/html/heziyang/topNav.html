@@ -4,15 +4,19 @@
 		<div ng-class="{navcontent_show:bool==true,navcontent_hide:bool==false}" ng-if="isShow">
 			<div class="nav_title">
 				<div style="border-bottom: 0.013333rem solid #999999;width: 100%;height: 100%;">
-					<a href="#" class="logo"><img src="../app/images/logo.png" /></a>
+					<a href="#!/home" class="logo"><img src="../app/images/logo.png"/></a>
 					<div>
 						<a class="icon-fangdajing iconfont search" ng-click="switchSearchBar()"></a>
 					</div>
 					<div class="login_area">
-						<p style="font-size:0.186666rem;">
-							<a href="#!/logreg/login">登陆</a>
+						<p style="font-size:0.186666rem;" ng-show="login_area_bool">
+							<a href="#!/logreg/login" ng-click="toLogin()">登陆</a>
 							|
-							<a href="#!/logreg/reg">注册</a>
+							<a href="#!/logreg/reg" ng-click="toLogin()">注册</a>
+						</p>
+						<p ng-show="!login_area_bool" class="quit">
+							<span><a href="#!/mine/collect">{{username}}</a></span>
+							<span ng-click="quit()">退出</span>
 						</p>
 					</div>
 				</div>
@@ -233,6 +237,14 @@
 		height: 0.533333rem;
 		line-height: 0.533333rem;
 		border-radius: 0.066666rem;
+	}
+	.quit span {
+		font-size: 14px;
+		color: #999;
+	}
+	.quit a {
+		font-size: 14px;
+		color: #c52a08;
 	}
 	@-webkit-keyframes navcontent_show {
 		from {

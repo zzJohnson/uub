@@ -5,14 +5,26 @@
 	<div class="xcomment-pinl xcomment">
 		<span>{{i.pinlun}} 条评论</span>
 	</div>
-	<!-- <div class="xcomment-cany">
-		<span>参与评论</span>
-		<div class="xcomment-methods">
-			<p>- 你可以通过以下方式登录 -</p>
-			<span>邮箱</span>
-			<span>微博</span>
+	<div class="hotpinl">
+		<div class="head-pic">
+			<div class="left">
+				<span class="img"><img src="../app/images/01.png" alt=""></span>
+				<span class="name">无名无形莫</span>
+			</div>
+			<div class="right">
+				<span class="D-zan">点赞</span>
+				<span>5</span>
+			</div>
 		</div>
-	</div> -->
+		<p class="pl">打字时移动光标的便利和app便捷操作真的没法比</p>
+		<div class="comf">
+			<span>来自Android客户端，今天 17:45</span>
+			<span class="back">回复</span>
+		</div>
+		<div class="more">
+			<span ng-click="showMore()">显示全部评论</span>
+		</div>
+	</div>
 </div>
 <style>
 	#xcomment-footer{
@@ -31,13 +43,87 @@
 	#xcomment-footer .xcomment-zan{
 		border-bottom:2px dashed #c2d2d2;
 	}
-	#xcomment-footer .xcomment-pinl{
-		border-bottom:1px solid #c2d2d2;
-	}
 	#xcomment-footer .xcomment-cany{
 		font-size:0.213333rem;
 		padding:0 0.266667rem;
 		margin:0.133333rem 0;
 		line-height: 0.8rem;
+	}
+	#xcomment-footer .hotpinl{
+		padding:0 0.266667rem;
+		font-size:0.213333rem; 
+		width: 100%;
+		margin:0 0 0.36rem 0;
+
+		color: #b2b2b2;
+	}
+	#xcomment-footer .head-pic {
+		overflow: hidden;
+		color:#000;
+		font-size:0.186667rem;
+		height:0.533333rem;
+		line-height: 0.533333rem;
+	}
+	#xcomment-footer .head-pic .left{
+		float: left;
+		font-style: normal;
+		height: 0.533333rem;
+		line-height: 0.533333rem;
+	}
+	#xcomment-footer .left .img{
+		border:none;
+		width:0.426667rem;
+		height:0.373333rem;
+		display: inline-block;
+		margin-right:0.08rem;
+	}
+	#xcomment-footer .head-pic .left img{
+		width: 100%;
+		border-radius: 50%;
+		padding-top: 0.08rem;
+	}
+	#xcomment-footer .left .name{
+		display: inline-block;
+		line-height: 0.533333rem;
+	}
+	#xcomment-footer .head-pic .right{
+		font-style: normal;
+		display: block;
+		float: right;
+		height: 0.533333rem;
+		line-height: 0.533333rem;
+	}
+	#xcomment-footer .D-zan{
+		display: inline-block;
+		margin-right: 0.053333rem;
+	}
+	#xcomment-footer .pl{
+		margin:0.133333rem 0;
+		font-size:0.186667rem;
+		color:#000;
+		height:0.4rem;
+		line-height: 0.4rem;
+	}
+	#xcomment-footer .comf{
+		font-size:0.186667rem;
+		height:0.4rem;
+		line-height: 0.4rem;
+	}
+	#xcomment-footer .back{
+		float:right;
+		color:#dc2811;
+	}
+	#xcomment-footer .more{
+		height:0.666667rem;
+		line-height: 0.666667rem;
+		text-align: center;
+		color:#dc2811;
+	}
+	#xcomment-footer .more span{
+		display: inline-block;
+		width:1.733333rem;
+		padding:0.066667rem;
+		height:0.533333rem;
+		line-height: 0.533333rem;
 	}
 </style>

@@ -1,0 +1,128 @@
+<div ng-show="isShowMore" class="morecom">
+	<div class="xcomment-pinl xcomment">
+		<span>4 条评论</span>
+	</div>
+	<ul>
+		<li ng-repeat="i in comment" class="list">
+			<div class="hotpinl">
+				<div class="head-pic">
+					<div class="left">
+						<span class="img"><img ng-src="{{i.imgurl}}" alt=""></span>
+						<span class="name">{{i.name}}</span>
+					</div>
+					<div class="right">
+						<span class="D-zan">点赞</span>
+						<span>{{i.zan}}</span>
+					</div>
+				</div>
+				<p class="pl">{{i.pl}}</p>
+				<div class="comf">
+					<span>来自{{i.comefrom}}客户端，今天 {{i.time}}</span>
+					<span class="back">回复</span>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<span class="button" ng-click="isShowMore=false">X</span>
+</div>
+<style>
+	.morecom{
+		position: fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		z-index: 1000;
+		background-color: #fff;
+	}
+	.morecom .xcomment{
+		font-size: 0.213333rem;
+		padding:0 0.266667rem;
+		height:0.8rem;
+		line-height: 0.8rem;
+		color: #b2b2b2;
+		font-weight: bold;
+		margin-top: 0.4rem;
+	}
+	.morecom .hotpinl{
+		padding:0 0.266667rem;
+		font-size:0.213333rem; 
+		width: 100%;
+		margin:0 0 0.36rem 0;
+
+		color: #b2b2b2;
+	}
+	.morecom .head-pic {
+		overflow: hidden;
+		color:#000;
+		font-size:0.186667rem;
+		height:0.533333rem;
+		line-height: 0.533333rem;
+	}
+	.morecom .head-pic .left{
+		float: left;
+		font-style: normal;
+		height: 0.533333rem;
+		line-height: 0.533333rem;
+	}
+	.morecom .left .img{
+		border:none;
+		width:0.426667rem;
+		height:0.373333rem;
+		display: inline-block;
+		margin-right:0.08rem;
+	}
+	.morecom .head-pic .left img{
+		width: 100%;
+		border-radius: 50%;
+		padding-top: 0.08rem;
+	}
+	.morecom .left .name{
+		display: inline-block;
+		line-height: 0.533333rem;
+	}
+	.morecom .head-pic .right{
+		font-style: normal;
+		display: block;
+		float: right;
+		height: 0.533333rem;
+		line-height: 0.533333rem;
+	}
+	.morecom .D-zan{
+		display: inline-block;
+		margin-right: 0.053333rem;
+	}
+	.morecom .pl{
+		margin:0.133333rem 0;
+		font-size:0.186667rem;
+		color:#000;
+		height:0.4rem;
+		line-height: 0.4rem;
+	}
+	.morecom .comf{
+		font-size:0.186667rem;
+		height:0.4rem;
+		line-height: 0.4rem;
+	}
+	.morecom .back{
+		float:right;
+		color: #dc2811;
+	}
+	.morecom .list{
+		border-bottom:1px dashed #e2e2e2;
+		margin-bottom: 0.266667rem;
+	}
+	.morecom .button{
+		position:fixed;
+		top: 0.266667rem;
+		right:0.266667rem;
+		display: inline-block;
+		width:0.426667rem;
+		height:0.4rem;
+		background-color: #000;
+		line-height: 0.4rem;
+		text-align: center;
+		color:#fff;
+		font-weight: bold;
+	}
+</style>
