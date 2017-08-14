@@ -1,6 +1,6 @@
 ### 地址
 
-http://
+https://zzjohnson.github.io/uub/public
 
 ### 接口
 
